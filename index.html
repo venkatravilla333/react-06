@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <!-- <h1>This is heading from html< /h1> -->
+  </div>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script>
+  var jsh1 =  document.createElement('h1')
+  jsh1.innerText = 'This is heading from js'
+
+let jsroot =  document.getElementById('root')
+
+jsroot.appendChild(jsh1)
+
+// let reacth1 = React.createElement('h1', {}, 'This is heading from react')
+
+// let reactroot = ReactDOM.createRoot(document.getElementById('root'))
+
+// reactroot.render(reacth1)
+
+  </script>
+
+</body>
+</html>
