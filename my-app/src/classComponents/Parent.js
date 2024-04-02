@@ -1,11 +1,13 @@
 
-import React, {Component} from 'react' 
+import React from "react"
 
-class Parent extends Component{
+class Parent extends React.Component{
   render() {
-  return <h2>Hello</h2>
-  }
+   return <h1>Hello class com</h1>
+ }
 }
 
 export default Parent
+
+
 
