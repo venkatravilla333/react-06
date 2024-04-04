@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Child1 from './Child1'
 import Child2 from './Child2'
 
 function Parent() {
-  var name = 'sachin' //api call
+  // var data = 'sachin'
+  var [x, setX] = useState(100)
+  
+  function test(data) {
+    console.log(data)
+    setX(data)
+  }
   return (
     <div>
-      <Child1 name={name} />
-      <Child2 />
+      <h3>Num: {x}</h3>
+      <Child1 test={test} />
+      <Child2 x={x} />
+     
     </div>
   )
 }
