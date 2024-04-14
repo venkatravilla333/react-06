@@ -4,7 +4,7 @@
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
 // import Parent from "./classComponents/Props/Parent";
-import A from "./functionalComponents/state/localState/A";
+import A from "./classComponents/state/localState/A";
 
 // import Parent from "./functionalComponents/Props/Parent";
 
