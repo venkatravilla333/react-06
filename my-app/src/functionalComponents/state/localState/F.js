@@ -6,8 +6,8 @@ function F(props) {
   console.log(props)
   return (
     <div>
-      <h4>F com: Name: {props.name }</h4>
-      <button >update name</button>
+      <h4>F com: Name: {props.name.title }</h4>
+      {/* <button >update name</button> */}
     </div>
   );
 }

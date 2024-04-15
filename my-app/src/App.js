@@ -3,8 +3,10 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
+import A from "./functionalComponents/state/globalState/A";
+
 // import Parent from "./classComponents/Props/Parent";
-import A from "./classComponents/state/localState/A";
+// import A from "./classComponents/state/localState/A";
 
 // import Parent from "./functionalComponents/Props/Parent";
 

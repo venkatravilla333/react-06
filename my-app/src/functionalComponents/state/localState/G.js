@@ -14,8 +14,8 @@ function G(props) {
     <div>
       {/* <h4>G com: X: {x} </h4>
       <button onClick={()=>updateX(x+1)}>update X</button> */}
-      <h4>G com: Name: {props.name }</h4>
-      <button>update X</button>
+      <h4>G com: Name: {props.name.title }</h4>
+      {/* <button>update X</button> */}
     </div>
   );
 }

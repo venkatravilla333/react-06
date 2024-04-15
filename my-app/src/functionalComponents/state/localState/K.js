@@ -1,11 +1,16 @@
 import React, {useState} from 'react'
 
 function K(props) {
-  console.log(props)
   // var [name, setName] = useState('sachin');
   return (
     <div>
-      <h4>K com: name: {props.name} </h4>
+      <h4>K com: name:  </h4>
+      {
+        props.name.map((obj) => {
+          return <h5>{obj.title}</h5>
+        })
+      }
+      
     </div>
   )
 }
