@@ -5,6 +5,9 @@ import axios from 'axios'
 
 export let productsContent = React.createContext()
 export let usersContent = React.createContext()
+// export let todosContent = React.createContext()
+
+
 console.log(productsContent._currentValue)
 
 export class A extends Component {

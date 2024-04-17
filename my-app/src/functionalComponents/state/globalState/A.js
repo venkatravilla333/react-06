@@ -5,6 +5,7 @@ import axios from 'axios'
 
 export let productsContent = React.createContext()
 export let usersContent = React.createContext()
+export let todosContent = React.createContext()
 console.log(productsContent)
 console.log(usersContent)
 
@@ -13,6 +14,7 @@ function A() {
   // var [name, setName] = useState('sara')
   var [posts, setPosts] = useState([])
   var [users, setUsers] = useState([])
+  var [todos, setTodos] = useState([])
 
   function getPosts() {
     axios.get('https://jsonplaceholder.typicode.com/posts')
@@ -28,14 +30,17 @@ function A() {
   
   return (
     <div>
+      
       <button onClick={getPosts}>A com GetPosts</button>
       <button onClick={getUsers}>A com GetUsers</button>
-      <usersContent.Provider value={users}>
-        <productsContent.Provider value={posts}>
-          <B />
-          <C />
-        </productsContent.Provider>
-      </usersContent.Provider>
+      <todosContent.Provider value={[todos, setTodos]}>
+        <usersContent.Provider value={users}>
+          <productsContent.Provider value={posts}>
+            <B />
+            <C />
+          </productsContent.Provider>
+        </usersContent.Provider>
+      </todosContent.Provider>
     </div>
   );
 }

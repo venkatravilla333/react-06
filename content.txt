@@ -347,3 +347,173 @@ package.lock.json
    - In React, we have to use className instead of class for adding classes to the HTML element
    - All attribute names in React are written in camelCase.
    - undefined, null, and boolean are not displayed on the UI when used inside JSX.
+
+
+
+
+   7) Props
+   =====
+
+   1. In ReactJS, "props" short for properties, it is a way for passing data from a parent component to its child components.
+ 
+   2. Props allow you to make your components dynamic and reusable by providing them with the necessary data from their parent components.
+
+   3. Props are read-only (immutable) meaning that the child components should not modify the props directly. If a child component needs to modify the data, ((it should be done by sending a callback function from the parent component as a prop.))
+
+   4. Props promote the flow of data from top to bottom in the component hierarchy, following the unidirectional data flow principle of React.
+
+     Here's how it works:
+
+   - Parent Component: In the parent component, you define a child component and pass data to it using attributes. These attributes are referred to as props in the child component.
+   
+   - Child Component: In the child component, you can access the data passed from parent through the props object.
+
+   
+
+   1) Parent to child 
+
+   2) Child to parent
+
+   3) Child to child (between siblings)
+
+      1) Child to parent & parent to child
+
+      2) Context API
+
+      3) Redux
+  
+
+8) State
+   =====
+
+
+   1. In React, "state" is a pre-defined variable for storing data within a component. Unlike props, which are passed from parent to child components and props are read-only, where as state is used for storing data that can change over time and is maintained and managed within the component itself.
+
+   2. State is an essential concept in React and is widely used for creating dynamic and interactive user interfaces.
+
+   3. A React component's state is used to store and manage data that can change over time. When the state of a component changes, React will automatically re-render the component, updating the user interface to reflect the new state.
+
+   4. To use state in a class-based component, you can define the initial state in the constructor using this.state. In functional components, you can use the useState hook to create and manage state variables.
+
+  
+ 
+   1) What is local state?
+      ===================
+
+   - In React, "local state" refers to the state that is confined and managed within a specific component. It means that the state data is not accessible by other components in the application.
+
+   - useState:
+
+     useState is a built-in React Hook that allows functional components to have local state.
+     It is used for managing simple state within a component without the need for complex state management solutions.
+     Use useState when you have local state that is limited to a single component.
+
+   
+     1) class components
+
+      this.state = {}
+
+      this.setState()
+
+     2) functional components
+
+      simple data
+      -----------
+
+      useState hook
+
+      complex data
+      ------------
+
+      useReducer hook
+
+
+
+   2) What is state lifting?
+      =====================
+
+  - State lifting, also known as "lifting state up," is a pattern in React where the state data is moved from a child component to its parent component in the component hierarchy. This is done to share the state between multiple child components.
+
+  - The need for state lifting typically arises when two or more components need to share the same state. Instead of maintaining the state separately in each child component, the state is moved to a common parent component.
+ 
+  - The parent component then passes down the state data and any necessary callback functions as  props to the child components, allowing them to interact with and update the shared state.
+
+
+   3) What is props drilling?
+      ======================
+
+
+  - Props drilling is a term used in React to describe the process of passing data (props) from a  higher-level component down to one or more nested child components through multiple levels of the component tree.
+
+  - This process of passing the same prop through multiple intermediary components is known as props drilling.
+
+
+    Props drilling typically occurs when ?
+    --------------------------------------
+
+  - Data needs to be shared between distant components: If two components are not directly connected through parent-child relationships, but they need to exchange data, the data must be passed through intermediary components using props drilling.
+
+  - Intermediate components do not use the data themselves: Sometimes, components in the middle of the component tree don't need the data they receive as props. However, since they are required to pass the data down to their child components, they act as channel for passing data, leading to props drilling.
+
+
+    While props drilling is a natural and common pattern in React applications, it can lead to a couple of issues:
+
+   1) Prop drilling can make the code harder to maintain and read, especially when there are many levels of nesting.
+
+   2) If the data needs to be accessed by a deeply nested component, all the intermediate components must receive and pass down the data, even if they don't use it, which can be inefficient.
+
+
+    4) How to avoid props drilling in react?
+       ====================================
+
+   - By maintaining global state we can avoid props drilling.
+
+   - To address these issues, you can consider using state management libraries like Redux or the React Context API to manage and share data across components without the need for explicit props drilling.
+ 
+   - These libraries offer centralized stores or contexts that allow components to access data without passing it through every level of the component tree.
+
+       
+    5) What is Global state?
+       ====================
+
+   - In ReactJS, "global state" refers to a centralized state management approach where the application's state is stored and managed in a global container and made accessible to any component in the application.
+ 
+   - This global state can be accessed from any component without the need to pass data through props or props drilling.
+
+   - The motivation behind using global state is to simplify the process of sharing data between different components, especially when multiple components need access to the same data. It helps avoid the complexity arise from excessive props drilling.
+
+
+     There are various libraries and approaches available in React to implement global state:
+
+
+     1) React Context API:
+        ----------------- 
+
+    - The React Context API is a built-in feature that allows you to create a context and share data through the component tree without explicit props passing.
+
+    - The Context API in React allows you to store and share any value that you want, including primitive data types (like numbers and strings), objects, arrays, functions, or even React components. It's not limited to specific data types.
+ 
+    - It enables you to define a Provider component at the top level of the application to provide data, and then any component within the provider's scope can consume that data using the useContext hook.
+
+    - When you create a context using React.createContext(), you can provide an initial value that will be used when a component accesses the context without a matching provider.
+
+    - Basically, Context API consists of two main components: the context provider and the context consumer. The provider is responsible for creating and managing the context, which holds the data to be shared between components. On the other hand, the consumer is used to access the context and its data from within a component.
+
+      Steps:
+
+        1) Create a Context Object:
+ 
+           First, you need to create a context object using the createContext function from the 'react' library. This context object will hold the data that you want to share across your application.
+
+           
+        2) Wrap Components with a Provider:
+
+           Once you've created a context object, you need to wrap the top level components that need access to the shared data with a Provider component. The Provider component accepts a "value" prop that holds the shared data, and any component that is a child of the Provider component can access that shared data.
+
+        3) Consume context value:
+
+           In class components: render props pattern
+
+           In functional components: useContext hook
+
+     Note: Avoid using it for state that only needs to be accessed within a single component, as it can lead to unnecessary complexity and performance issues.
