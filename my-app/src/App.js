@@ -3,7 +3,15 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
-import A from "./functionalComponents/state/globalState/A";
+import A from "./classComponents/state/globalState/redux-react-concept/react-components/A";
+
+// import A from "./classComponents/state/globalState/content-api/A";
+
+// import A from "./functionalComponents/state/globalState/redux-react-concept/react-components/A";
+
+// import A from "./functionalComponents/state/globalState/content-api/A";
+
+// import A from "./functionalComponents/state/globalState/A";
 
 // import Parent from "./classComponents/Props/Parent";
 // import A from "./classComponents/state/globalState/A";
@@ -24,6 +32,7 @@ function App() {
       {/* <Parent/> */}
       {/* {new Parent().render()} */}
       <A/>
+
       
     </>
   ); 

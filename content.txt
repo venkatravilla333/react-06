@@ -348,6 +348,137 @@ package.lock.json
    - All attribute names in React are written in camelCase.
    - undefined, null, and boolean are not displayed on the UI when used inside JSX.
 
+        2) Redux:
+        -----
+
+    - Redux is a popular state management library for React applications. It provides a global store that holds the application's state, and any component can access the state and dispatch actions to update the state.
+ 
+    - Redux follows a unidirectional data flow, making it easier to manage and track state changes in large applications.
+
+      Core principles in redux:
+
+       1) Action: Action is an object with type property.
+   
+       2) Reducer: Reducer is a function it receives initialState and action and it return new state depends upon action.
+
+       3) Store: We can create store by using createStore () method which is from redux.
+
+React-redux
+-----------
+
+React-Redux is a library for integrating the React library with the Redux state management library in a React application. React is a JavaScript library for building user interfaces, and Redux is a predictable state container for JavaScript apps, commonly used with React for managing the state of a web application in a more organized and scalable way.
+
+Here are the main components and concepts in React-Redux:
+
+Provider: 
+-------
+
+Wraps the entire React application and makes the Redux store available to all components in the component tree.
+
+connect() Function: 
+------------------
+
+React-Redux provides a connect() function that creates container components. These container components are responsible for connecting React components to the Redux store. The connect() function takes two main arguments: mapStateToProps and mapDispatchToProps. These functions define how to retrieve state from the Redux store and how to dispatch actions.
+
+The connect function is a crucial part of the React-Redux library, and it is used to connect a React component to the Redux store. It is a higher-order function (HOC) that wraps your component and provides it with the necessary props to interact with the Redux store.
+
+Here's how the connect function is typically used:
+
+
+import { connect } from 'react-redux';
+
+// Define a React component
+
+class MyComponent extends React.Component {
+  // Your component logic here
+}
+
+// Define a function to map state from the Redux store to component props
+
+const mapStateToProps = (state) => {
+  return {
+    // Map state properties to component props
+    someProp: state.someProp,
+    anotherProp: state.anotherProp,
+  };
+};
+
+// Define a function to map dispatch actions to component props
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // Map action creators to component props
+    someAction: () => dispatch(someAction()),
+    anotherAction: () => dispatch(anotherAction()),
+  };
+};
+
+// Connect the component to the Redux store
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyComponent);
+
+Here's a breakdown of the key parameters passed to the connect function:
+
+mapStateToProps:
+---------------
+This function is used to map the state from the Redux store to the props of your component. It takes the current state as an argument and returns an object that defines the props your component needs.
+
+mapDispatchToProps:
+------------------
+It is used to map action creators to the props of your component. It takes the dispatch function as an argument and returns an object with the mapped actions.
+
+connect(mapStateToProps, mapDispatchToProps)(MyComponent):
+----------------------------------------------------------
+The connect function returns a new function that you can use to wrap your React component. The resulting connected component will receive the state and actions as props.
+Once your component is connected using connect, it can access the Redux state and dispatch actions as props. For example:
+
+
+// Inside MyComponent
+
+console.log(this.props.someProp); // Accessing state
+
+this.props.someAction(); // Dispatching an action
+
+This pattern helps in creating components that are connected to the global Redux state, making it easy to manage and update the state in a React application.
+
+
+In functional component
+-----------------------
+
+useSelector and useDispatch are two hooks provided by the React Redux library, which is commonly used for state management in React applications.
+
+useSelector:
+-----------
+
+- useSelector is used to extract data from the Redux store.
+- It takes a selector function as an argument, which is used to select a specific piece of data from the Redux store's state. 
+
+useDispatch:
+-----------
+
+- useDispatch is used to dispatch actions to the Redux store.
+- It returns a reference to the dispatch function from the Redux store.
+- The dispatch function is used to send actions to the Redux store, triggering state changes.
+
+In summary, useSelector is used to read data from the Redux store, and useDispatch is used to dispatch actions to update the state in the Redux store. Together, these hooks facilitate the integration of React components with the Redux state management system.
+
+      
+     Global state
+     ------------
+
+      1) class components
+
+         -context API
+
+         -redux
+
+      2) functional components
+          
+         -Context API
+
+         -redux
+
+
 
 
 
