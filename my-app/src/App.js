@@ -3,7 +3,7 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
-import A from "./classComponents/state/globalState/redux-react-concept/react-components/A";
+// import A from "./classComponents/state/globalState/redux-react-concept/react-components/A";
 
 // import A from "./classComponents/state/globalState/content-api/A";
 
@@ -31,7 +31,7 @@ function App() {
       {/* <Jsx/> */}
       {/* <Parent/> */}
       {/* {new Parent().render()} */}
-      <A/>
+    
 
       
     </>

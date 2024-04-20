@@ -1,8 +1,11 @@
 import React from 'react'
+import FetchData from './FetchData'
 
 function J() {
   return (
-    <div>J</div>
+    <div>
+      <FetchData/>
+    </div>
   )
 }
 
