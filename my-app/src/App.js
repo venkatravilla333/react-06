@@ -3,6 +3,10 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
+import Parent from "./classComponents/Life-cycle-methods/1.Mounting-phase & 2. Updating -phase/Parent";
+
+
+
 // import A from "./classComponents/state/globalState/redux-react-concept/react-components/A";
 
 // import A from "./classComponents/state/globalState/content-api/A";
@@ -31,7 +35,8 @@ function App() {
       {/* <Jsx/> */}
       {/* <Parent/> */}
       {/* {new Parent().render()} */}
-    
+      {/* <A/> */}
+      <Parent/>
 
       
     </>
