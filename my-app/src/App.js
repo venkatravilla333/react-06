@@ -4,6 +4,9 @@
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
 import Parent from "./classComponents/Life-cycle-methods/1.Mounting-phase & 2. Updating -phase/Parent";
+import Browser from "./functionalComponents/Side-effects/Interact-with-browser/Browser";
+import Dom from "./classComponents/Side-effects/Interact-with-dom/Dom";
+import Container from "./classComponents/Side-effects/Interact-with-browser/Container";
 
 
 
@@ -36,7 +39,10 @@ function App() {
       {/* <Parent/> */}
       {/* {new Parent().render()} */}
       {/* <A/> */}
-      <Parent/>
+      {/* <Parent/> */}
+      {/* <Dom/> */}
+      {/* <Browser/> */}
+      <Container/>
 
       
     </>

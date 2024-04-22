@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export class Subchild extends Component {
   constructor(props) {
     super(props);
-
     this.state = {};
     console.log('sub child contructor');
   }
