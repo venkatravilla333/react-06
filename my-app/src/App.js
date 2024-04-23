@@ -3,10 +3,14 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
-import Parent from "./classComponents/Life-cycle-methods/1.Mounting-phase & 2. Updating -phase/Parent";
-import Browser from "./functionalComponents/Side-effects/Interact-with-browser/Browser";
-import Dom from "./classComponents/Side-effects/Interact-with-dom/Dom";
-import Container from "./classComponents/Side-effects/Interact-with-browser/Container";
+import Parent from "./classComponents/Life-cycle-methods/4.ErrorBoundry-phase/Parent";
+import Getdata from "./classComponents/Side-effects/Api-calls/Getdata";
+
+// import Parent from "./classComponents/Life-cycle-methods/1.Mounting-phase & 2. Updating -phase/Parent";
+// import Browser from "./functionalComponents/Side-effects/Interact-with-browser/Browser";
+// import Dom from "./classComponents/Side-effects/Interact-with-dom/Dom";
+// import Container from "./classComponents/Side-effects/Interact-with-browser/Container";
+// import Getdata from "./functionalComponents/Side-effects/Api-calls/Getdata";
 
 
 
@@ -42,7 +46,9 @@ function App() {
       {/* <Parent/> */}
       {/* <Dom/> */}
       {/* <Browser/> */}
-      <Container/>
+      {/* <Container/> */}
+      {/* <Getdata/> */}
+      <Parent/>
 
       
     </>
