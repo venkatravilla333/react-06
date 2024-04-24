@@ -3,8 +3,12 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
-import Parent from "./classComponents/Life-cycle-methods/4.ErrorBoundry-phase/Parent";
-import Getdata from "./classComponents/Side-effects/Api-calls/Getdata";
+import Parent from "./classComponents/Destructuring/Parent";
+import Binding from "./classComponents/Events-binding/Binding";
+import List from "./classComponents/List-rendering/List";
+
+// import Parent from "./classComponents/Life-cycle-methods/4.ErrorBoundry-phase/Parent";
+// import Getdata from "./classComponents/Side-effects/Api-calls/Getdata";
 
 // import Parent from "./classComponents/Life-cycle-methods/1.Mounting-phase & 2. Updating -phase/Parent";
 // import Browser from "./functionalComponents/Side-effects/Interact-with-browser/Browser";
@@ -48,7 +52,10 @@ function App() {
       {/* <Browser/> */}
       {/* <Container/> */}
       {/* <Getdata/> */}
-      <Parent/>
+      {/* <Parent/> */}
+      {/* <Parent/> */}
+      {/* <List/> */}
+      <Binding/>
 
       
     </>
