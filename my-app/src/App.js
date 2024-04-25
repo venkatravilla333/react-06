@@ -6,6 +6,15 @@
 import Parent from "./classComponents/Destructuring/Parent";
 import Binding from "./classComponents/Events-binding/Binding";
 import List from "./classComponents/List-rendering/List";
+import Input from "./classComponents/Ref/Refer-dom-element/Input";
+import Inline from "./functionalComponents/CSS/Inline/Inline";
+import LoginButton from "./functionalComponents/CSS/Module-Css/LoginButton";
+import SignupButton from "./functionalComponents/CSS/Module-Css/SignupButton";
+import Store from "./functionalComponents/Ref/Refer-value/Store";
+// import Input from "./functionalComponents/Ref/Refer-dom-element/Input";
+
+// import LoginButton from "./functionalComponents/CSS/Module-Css/LoginButton";
+// import SignupButton from "./functionalComponents/CSS/Module-Css/SignupButton";
 
 // import Parent from "./classComponents/Life-cycle-methods/4.ErrorBoundry-phase/Parent";
 // import Getdata from "./classComponents/Side-effects/Api-calls/Getdata";
@@ -55,7 +64,18 @@ function App() {
       {/* <Parent/> */}
       {/* <Parent/> */}
       {/* <List/> */}
-      <Binding/>
+      {/* <Binding/> */}
+      {/* <Inline/> */}
+      {/* <SignupButton/>
+      <LoginButton /> */}
+      {/* <SignupButton />
+      <LoginButton/>
+       */}
+      {/* <Input/> */}
+      {/* <Input/> */}
+      <Store/>
+
+      
 
       
     </>
