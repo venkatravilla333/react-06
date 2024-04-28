@@ -648,3 +648,580 @@ In summary, useSelector is used to read data from the Redux store, and useDispat
            In functional components: useContext hook
 
      Note: Avoid using it for state that only needs to be accessed within a single component, as it can lead to unnecessary complexity and performance issues.
+
+
+
+     
+     2) Redux:
+        -----
+
+    - Redux is a popular state management library for React applications. It provides a global           store that holds the application's state, and any component can access the state and               dispatch actions to update the state.
+ 
+    - Redux follows a unidirectional data flow, making it easier to manage and track state               changes in large applications.
+
+      Core principles in redux:
+
+       1) Action: Action is an object with type property.
+   
+       2) Reducer: Reducer is a function it receives initialState and action and it return new                        state depends upon action.
+
+       3) Store: We can create store by using createStore () method which is from redux.
+
+React-redux
+-----------
+
+React-Redux is a library for integrating the React library with the Redux state management library in a React application. React is a JavaScript library for building user interfaces, and Redux is a predictable state container for JavaScript apps, commonly used with React for managing the state of a web application in a more organized and scalable way.
+
+Here are the main components and concepts in React-Redux:
+
+Provider: 
+-------
+
+Wraps the entire React application and makes the Redux store available to all components in the component tree.
+
+connect() Function: 
+------------------
+
+React-Redux provides a connect() function that creates container components. These container components are responsible for connecting React components to the Redux store. The connect() function takes two main arguments: mapStateToProps and mapDispatchToProps. These functions define how to retrieve state from the Redux store and how to dispatch actions.
+
+The connect function is a crucial part of the React-Redux library, and it is used to connect a React component to the Redux store. It is a higher-order function (HOC) that wraps your component and provides it with the necessary props to interact with the Redux store.
+
+Here's how the connect function is typically used:
+
+
+import { connect } from 'react-redux';
+
+// Define a React component
+
+class MyComponent extends React.Component {
+  // Your component logic here
+}
+
+// Define a function to map state from the Redux store to component props
+
+const mapStateToProps = (state) => {
+  return {
+    // Map state properties to component props
+    someProp: state.someProp,
+    anotherProp: state.anotherProp,
+  };
+};
+
+// Define a function to map dispatch actions to component props
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // Map action creators to component props
+    someAction: () => dispatch(someAction()),
+    anotherAction: () => dispatch(anotherAction()),
+  };
+};
+
+// Connect the component to the Redux store
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyComponent);
+
+Here's a breakdown of the key parameters passed to the connect function:
+
+mapStateToProps:
+---------------
+This function is used to map the state from the Redux store to the props of your component. It takes the current state as an argument and returns an object that defines the props your component needs.
+
+mapDispatchToProps:
+------------------
+It is used to map action creators to the props of your component. It takes the dispatch function as an argument and returns an object with the mapped actions.
+
+connect(mapStateToProps, mapDispatchToProps)(MyComponent):
+----------------------------------------------------------
+The connect function returns a new function that you can use to wrap your React component. The resulting connected component will receive the state and actions as props.
+Once your component is connected using connect, it can access the Redux state and dispatch actions as props. For example:
+
+
+// Inside MyComponent
+
+console.log(this.props.someProp); // Accessing state
+
+this.props.someAction(); // Dispatching an action
+
+This pattern helps in creating components that are connected to the global Redux state, making it easy to manage and update the state in a React application.
+
+
+In functional component
+-----------------------
+
+useSelector and useDispatch are two hooks provided by the React Redux library, which is commonly used for state management in React applications.
+
+useSelector:
+-----------
+
+- useSelector is used to extract data from the Redux store.
+- It takes a selector function as an argument, which is used to select a specific piece of data     from the Redux store's state. 
+
+useDispatch:
+-----------
+
+- useDispatch is used to dispatch actions to the Redux store.
+- It returns a reference to the dispatch function from the Redux store.
+- The dispatch function is used to send actions to the Redux store, triggering state changes.
+
+In summary, useSelector is used to read data from the Redux store, and useDispatch is used to dispatch actions to update the state in the Redux store. Together, these hooks facilitate the integration of React components with the Redux state management system.
+
+      
+     Global state
+     ------------
+
+      1) class components
+
+         -context API
+
+         -redux
+
+      2) functional components
+          
+         -Context API
+
+         -redux
+8) Life cycle methods in class components
+   ======================================
+
+
+     1) Mounting phase
+
+     2) Updating phase
+   
+     3) Unmounting phase
+
+     4) Error boundry
+
+
+In React.js, components have a lifecycle that consists of different phases during their creation, updating, and destruction. However, with the introduction of React Hooks, some of the traditional lifecycle methods have been replaced or complemented by new functions. Here is an overview of both the traditional class component lifecycle methods and the corresponding React Hook equivalents:
+
+Class Component Lifecycle Methods:
+----------------------------------
+
+1)Mounting Phase:
+  --------------
+
+1) constructor(props): Initializes the component's state and binds event handlers.
+
+2) static getDerivedStateFromProps(props, state): Used to update the state based on changes in        props. Rarely used.
+
+3) render(): Renders the component's UI.
+
+4) componentDidMount(): Invoked immediately after the component is mounted to the DOM. Perfect for    side effects like network requests.
+
+2) Updating Phase:
+   --------------
+
+1) static getDerivedStateFromProps(nextProps, prevState): Similar to the mounting phase method,       but for updates.
+
+2) shouldComponentUpdate(nextProps, nextState): Determines if the component should re-render,         optimizing performance.
+
+3) render(): Renders the updated UI.
+
+4) getSnapshotBeforeUpdate(prevProps, prevState): Captures some information before the component      update.
+
+5) componentDidUpdate(prevProps, prevState, snapshot): Invoked after the component update is          flushed to the DOM. Useful for side effects.
+
+3) Unmounting Phase:
+   ----------------
+
+1) componentWillUnmount(): Invoked just before the component is unmounted and destroyed. Clean up     resources here.
+
+4) Error Handling Phase:
+   --------------------
+
+componentDidCatch(error, info): Used for error boundaries to catch and handle errors within a component's children.
+
+React Hook Equivalents:
+-----------------------
+
+Mounting Phase:
+--------------
+
+useState(initialState): Equivalent to setting state in the constructor.
+useEffect(callback, dependencies): Equivalent to componentDidMount. 
+
+Updating Phase:
+--------------
+
+useEffect(callback, dependencies): Still used for updates and side effects.
+
+
+Unmounting Phase:
+----------------
+
+useEffect(() => () => cleanup, []): Cleanup function to be executed when the component unmounts.
+
+
+Error Handling Phase:
+--------------------
+
+In React functional components, error handling is typically done using a combination of error boundaries and standard JavaScript error handling techniques. Error boundaries are components that catch JavaScript errors anywhere in their child component tree and display an error UI instead of crashing the whole application. Here's how you can handle errors in functional components in React:
+
+Use try...catch Blocks: You can use standard JavaScript try...catch blocks within your functional component to catch errors that occur during rendering or other operations.
+
+Use Error Boundaries: Error boundaries are special components that catch errors from their child components. You can define an error boundary component and wrap your functional component with it.
+
+Use Custom Error Handling Hooks: You can create custom hooks to handle errors in functional components and provide a consistent way of handling errors throughout your application.
+
+import React, { useState } from 'react';
+
+function useErrorHandling() {
+  const [error, setError] = useState(null);
+
+  const handleError = (error) => {
+    setError(error);
+    console.error(error);
+  };
+
+  return { error, handleError };
+}
+
+function MyComponent() {
+  const { error, handleError } = useErrorHandling();
+
+  try {
+    // Your component logic here
+    return <div>{someData}</div>;
+  } catch (error) {
+    handleError(error);
+    return <div>An error occurred: {error.message}</div>;
+  }
+}
+Remember that error boundaries can only catch errors in their child components during rendering. They won't catch errors in event handlers, async code (e.g., setTimeout), or when errors are thrown outside the component tree. For those cases, you may still need to use traditional try...catch blocks or other error-handling techniques.
+
+Additionally, make sure to provide helpful error messages and notifications to users when errors occur, but avoid showing too much technical detail that could potentially expose vulnerabilities.
+
+
+
+9) Side Effects (DOM interaction/ Browser interaction/ API calls)
+=================================================================
+
+     1) class components
+
+        =>componentDidMount
+        =>componentDidUpdate
+        =>componentWillUnmount
+
+     2) functional components
+
+        =>useEffect hook
+
+useEffect hook:
+==============
+
+The useEffect hook is a fundamental part of React functional components that allows you to perform side effects in your components. Side effects can include things like data fetching, DOM manipulation. It's used to handle the lifecycle aspects of a component, similar to how lifecycle methods (componentDidMount, componentDidUpdate, and componentWillUnmount) work in class components.
+
+
+10) refs
+    ====
+
+   - In class components we use React.createRef() 
+
+   - In functional components we use useRef hook 
+   
+   - It is used to access/refer DOM elements in react component.
+
+   - By using ref we can also store data in react and it can also update value between 
+     re-renders without re-rendering the component.
+ 
+   - The updated value will be tracked by react but component will not be re-rendered. 
+     For storing value in react we have state variable.
+
+   - The value will persist through the re-renders while also not causing any additional 
+     renders when its value changes.
+
+   - The main purpose of ref variable in react to interact with DOM element and to refer value      somewhere.
+
+     
+
+
+11) Portals
+    =======
+
+    
+  - Portal is an advanced concept in react which provides a way to render child element outside       of parent DOM hierarchy.
+
+  - If any child component having modal/popup/tooltip in its JSX then its parent component's css       will effect the child,s css.
+
+  - To implement a portal in React, you use the ReactDOM.createPortal() method. This method allows     you to specify the content you want to render and the target DOM element where it should be        inserted.
+
+       - Create one more div in index.html file to render child component in which modal develops.
+
+              <div id='model-root'></div>
+
+       - In child component JSX use the below to create portal. 
+
+            => ReactDOM.createPortal(modal, document.getElementById(model-root))
+
+  - By using portals, you can achieve more flexibility in rendering elements and create better         user experiences when it comes to managing overlapping or out-of-flow components in React          applications.
+
+   .modal-overlay {
+
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+ .content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+
+  box-shadow: 0 2px 8px rgba(0 0 0 0.5)
+  }
+
+ /* .app {
+      position: relative
+    } */
+
+
+
+12) How to handle with CSS?
+    ======================
+
+    1) Inline css
+
+    2) style sheet
+
+    3) module style sheet
+
+    3) styled component
+
+
+Sure, let's take a look at how module styles are scoped locally and how regular styles are scoped globally using code examples.
+
+Module Styles (Scoped Locally):
+
+With module styles, each component has its own CSS module file, and the class names within that file are automatically scoped to that component. Here's an example:
+
+
+// Button.module.css
+
+.button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+}
+
+// Button.js
+
+import React from 'react';
+import styles from './Button.module.css';
+
+const Button = () => {
+  return <button className={styles.button}>Click me</button>;
+};
+
+export default Button;
+
+In this example, the .button class defined in Button.module.css is scoped locally to the Button component. It won't clash with any other .button classes in different components because the class name is automatically transformed to be unique.
+
+Regular Styles (Scoped Globally):
+
+With regular styles, if you define a class in an external stylesheet, it can be accessed and used across multiple components or elements. Here's an example:
+
+
+<!-- styles.css -->
+
+.button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+}
+
+// Button.js
+
+import React from 'react';
+import './styles.css'; // Import the global stylesheet
+
+const Button = () => {
+  return <button className="button">Click me</button>;
+};
+
+export default Button;
+
+In this example, the .button class defined in styles.css is not locally scoped to the Button component. It's globally available and can be used by other components as well. This can lead to potential naming conflicts if not managed carefully, especially in larger projects.
+
+In summary, module styles provide local scoping by automatically generating unique class names for each component, preventing conflicts. Regular styles are globally scoped and can be used across multiple components, which might lead to potential naming clashes. Using module styles is generally considered a better practice for managing styles in larger React applications to ensure encapsulation and avoid global style pollution.
+
+
+
+
+13) Destructuring
+    =============
+
+ - Destructuring is a powerful technique in JavaScript, including when working with React             components to handle props and state more effectively. It allows you to extract values from        objects and arrays into distinct variables, making your code cleaner and more readable.
+
+   Destructuring Props:
+   -------------------
+
+   When destructuring props in a functional component, you can do so within the function's            argument list. Here's how you can destructure props:
+
+   Alternatively, you can destructure props within the function body:
+
+   function Child({ prop1, prop2 }) {
+
+    //const { prop1, prop2 } = props;//
+
+    return (
+    <div>
+      <p>Prop 1: {prop1}</p>
+      <p>Prop 2: {prop2}</p>
+    </div>
+    );
+   }
+
+  Destructuring State (Class Component):
+  -------------------
+
+  When working with class components, you can destructure state in the render method or any other    class method:
+
+  const { stateProp1, stateProp2 } = this.state;
+
+  Destructuring State (Functional Component with Hooks):
+
+  With functional components and Hooks, you can destructure state using the useState Hook:
+
+
+
+14) List rendering
+    ==============
+
+ - In React, list rendering is the process of rendering a collection of items (such as an array)      as a list of React elements. This is a common scenario in web applications where you want to       display a dynamic list of items, such as posts, comments, products, etc. React provides various    ways to achieve list rendering. Here are some approaches:
+
+   Using map(): The map() function is a commonly used method to iterate over an array and create      React elements for each item.
+
+
+  function App(props) {
+  const items = props.items;
+
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  );
+ }
+
+ - Remember that the key prop is important to provide when rendering lists, as it helps React keep    track of each element's identity and optimize updates. The key should be a unique identifier       for each item in the list. Avoid using the array index as the key when possible, as it can lead    to performance issues in certain cases.
+
+
+15) Events handling
+    ===============
+
+ - In React, event handling is essential for creating interactive user interfaces. You can attach     event handlers to React elements to respond to various user actions, such as clicks, input         changes, and more. Here's how you can handle events in React:
+
+
+   Inline Event Handlers:
+
+ - You can define event handlers directly in the JSX element's attributes. Use the onEventName        attribute where EventName is the specific event you want to handle (e.g., onClick, onChange)
+
+   Binding Event Handlers:
+
+ - When using class components, you need to bind the event handlers to the class instance to          access this correctly. In functional components, this is not required.
+
+   Passing Arguments to Event Handlers:
+
+ - If you need to pass additional data to an event handler, you can do so using arrow functions or    the bind method.
+
+   Preventing Default Behavior:
+
+ - You can prevent the default behavior of an event using the preventDefault method.
+
+
+
+16) Routing
+    =======
+
+   => MPA vs SPA
+      ----------
+
+    -With MPAs, every time we want to see something new, the whole web page has to reload
+
+     With SPAs no need to reload the whole page when we see some new content.
+
+    -MPAs will have the entire page getting reloaded Where as SPAs will have the main page loaded
+
+     once and then sub page sections are changing without refresh and this is handeled by JS
+
+     inside browser. 
+
+    -MPAs are traditional where as SPAs are modren approach.
+   
+    -To make a single page application we have to impliment the client side routing by using
+
+     react-router-dom library.
+
+   => Install react-router-dom
+
+     Need to install the react-router-dom library to create routing in react, it is dom version.
+
+       => npm i react-router-dom                  
+
+   => Configure Routing
+
+      First step is to configure the router is giving top level or height order component named
+
+      <BorwserRouter/>
+   
+      All the routes and components will be wrapped inside the <BrowserRouter/> component, as 
+
+      it will store the URLs internally, using which you actually route through all the components
+
+      or basically the entire application. It keeps track of changes and navigation history.
+
+      Routes and Route =>
+
+      When we click on the link which will be in the URL and The Routes component will look for
+
+      the related child route configured with the same URL value.
+
+      To impliment the SPA, react router provided us Link component.
+
+
+   => Link 
+
+      Link component is used to create SPA in react. When you click on any link it will not              refresh or reload entire page. It will load only particular section of data from server.
+
+   => Dynamic routing (useParams)
+
+      When we have lot of products from database then creating routes for each product is 
+      not easy. Then we create only one route for all products by using dynamic routing concept.
+
+   => Not matching route
+
+      If user is typed the URL for route which is not created then we have to handle that case
+
+      by creating one component which is rendered for not matched route.
+
+      give * for path while configure route. 
+ 
+   => Nested routes (Outlet)
+
+      When we click on link on memu then child component will be rendered but the menu will be           hidden, to persist the menu we have to create nested route for child component.
+      To render child component we have to use Outlet component.
+
+   => useLocation hook (sharing of data)
+
+   => useNavigate hook (page re-direct)
+  
+   => Protected routes 
+
+   => lazy loading
+
+Lazy loading in React.js is a technique used to improve the performance of web applications by loading certain components, routes, or modules only when they are needed, rather than loading them all at once when the application initially loads. This can significantly reduce the initial load time and resource usage of your application, especially for larger and more complex applications.
+
+Lazy loading is typically achieved using two primary mechanisms in React:
+
+Dynamic Imports: You can use JavaScript's dynamic import() function, which allows you to load modules or components asynchronously. By dynamically importing a module, you can specify when and where to load the code.
+

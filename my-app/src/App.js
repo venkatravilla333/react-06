@@ -3,14 +3,18 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
-import Parent from "./classComponents/Destructuring/Parent";
-import Binding from "./classComponents/Events-binding/Binding";
-import List from "./classComponents/List-rendering/List";
-import Input from "./classComponents/Ref/Refer-dom-element/Input";
-import Inline from "./functionalComponents/CSS/Inline/Inline";
-import LoginButton from "./functionalComponents/CSS/Module-Css/LoginButton";
-import SignupButton from "./functionalComponents/CSS/Module-Css/SignupButton";
-import Store from "./functionalComponents/Ref/Refer-value/Store";
+import Parent from "./functionalComponents/Portals/Parent";
+
+// import Parent from "./classComponents/Destructuring/Parent";
+// import Binding from "./classComponents/Events-binding/Binding";
+// import List from "./classComponents/List-rendering/List";
+// import Input from "./classComponents/Ref/Refer-dom-element/Input";
+// import Refervalue from "./functionalComponents/Ref/Refer-value/Refervalue";
+// import Refervalue from "./classComponents/Ref/Refer-value/Refervalue";
+// import Inline from "./functionalComponents/CSS/Inline/Inline";
+// import LoginButton from "./functionalComponents/CSS/Module-Css/LoginButton";
+// import SignupButton from "./functionalComponents/CSS/Module-Css/SignupButton";
+// import Store from "./functionalComponents/Ref/Refer-value/Store";
 // import Input from "./functionalComponents/Ref/Refer-dom-element/Input";
 
 // import LoginButton from "./functionalComponents/CSS/Module-Css/LoginButton";
@@ -73,8 +77,11 @@ function App() {
        */}
       {/* <Input/> */}
       {/* <Input/> */}
-      <Store/>
-
+      {/* <Store/> */}
+      {/* <Refervalue/> */}
+      
+      {/* <Refervalue/> */}
+      <Parent/>
       
 
       
