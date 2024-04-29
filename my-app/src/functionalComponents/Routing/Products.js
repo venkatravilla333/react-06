@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Outlet} from 'react-router-dom'
 
 function Products() {
 
@@ -14,10 +14,10 @@ function Products() {
     <div>
       <ul>
         {
-          products.map((obj) => {
+          products.map((product) => {
             return (
               <li>
-                <Link to={`/products/${obj.id}`}>{obj.pName }</Link>
+                <Link state={product} to={`/products/${product.id}`}>{product.pName }</Link>
               </li>
             );
           })
@@ -33,6 +33,7 @@ function Products() {
           <Link to='/products/4'>Papaya</Link>
         </li> */}
       </ul>
+      <Outlet context={products}/>
     </div>
   );
 }
