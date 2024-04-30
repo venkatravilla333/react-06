@@ -26,8 +26,12 @@ ul{
 .footer{
   background-color: black;
   color: white;
-  margin-top: 367px;
+  margin-top: 488px;
   text-align: center;
   height: 50px;
   line-height: 50px;
 }
+
+/* .active{
+  color: rgb(64, 47, 255);
+} */

@@ -3,7 +3,8 @@ import { useLocation, useOutletContext, useParams } from 'react-router-dom'
 
 function ProductDec() {
   var { id } = useParams()
-  // var productObj =  useOutletContext()
+  var productObject = useOutletContext()
+  console.log(productObject)
  var productObj = useLocation()
   return (
     <div>
