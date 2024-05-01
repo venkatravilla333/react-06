@@ -3,7 +3,9 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
-import Parent from "./functionalComponents/Portals/Parent";
+// import Rendering from "./functionalComponents/Conditional-rendering/Rendering";
+import Parent from "./functionalComponents/Fragment/Parent";
+// import Parent from "./functionalComponents/Portals/Parent";
 
 // import Parent from "./classComponents/Destructuring/Parent";
 // import Binding from "./classComponents/Events-binding/Binding";
@@ -81,6 +83,8 @@ function App() {
       {/* <Refervalue/> */}
       
       {/* <Refervalue/> */}
+      {/* <Parent/> */}
+      {/* <Rendering/> */}
       <Parent/>
       
 
