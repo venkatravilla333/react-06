@@ -923,16 +923,13 @@ The useEffect hook is a fundamental part of React functional components that all
    
    - It is used to access/refer DOM elements in react component.
 
-   - By using ref we can also store data in react and it can also update value between 
-     re-renders without re-rendering the component.
+   - By using ref we can also store data in react and it can also update value between re-renders without re-rendering the component.
  
-   - The updated value will be tracked by react but component will not be re-rendered. 
-     For storing value in react we have state variable.
+   - The updated value will be tracked by react but component will not be re-rendered. For storing value in react we have state variable.
 
-   - The value will persist through the re-renders while also not causing any additional 
-     renders when its value changes.
+   - The value will persist through the re-renders while also not causing any additional renders when its value changes.
 
-   - The main purpose of ref variable in react to interact with DOM element and to refer value      somewhere.
+   - The main purpose of ref variable in react to interact with DOM element and to refer value somewhere.
 
      
 
@@ -941,11 +938,11 @@ The useEffect hook is a fundamental part of React functional components that all
     =======
 
     
-  - Portal is an advanced concept in react which provides a way to render child element outside       of parent DOM hierarchy.
+  - Portal is an advanced concept in react which provides a way to render child element outside of parent DOM hierarchy.
 
-  - If any child component having modal/popup/tooltip in its JSX then its parent component's css       will effect the child,s css.
+  - If any child component having modal/popup/tooltip in its JSX then its parent component's css will effect the child,s css.
 
-  - To implement a portal in React, you use the ReactDOM.createPortal() method. This method allows     you to specify the content you want to render and the target DOM element where it should be        inserted.
+  - To implement a portal in React, you use the ReactDOM.createPortal() method. This method allows you to specify the content you want to render and the target DOM element where it should be inserted.
 
        - Create one more div in index.html file to render child component in which modal develops.
 
@@ -955,7 +952,7 @@ The useEffect hook is a fundamental part of React functional components that all
 
             => ReactDOM.createPortal(modal, document.getElementById(model-root))
 
-  - By using portals, you can achieve more flexibility in rendering elements and create better         user experiences when it comes to managing overlapping or out-of-flow components in React          applications.
+  - By using portals, you can achieve more flexibility in rendering elements and create better user experiences when it comes to managing overlapping or out-of-flow components in React applications.
 
    .modal-overlay {
 
@@ -1059,12 +1056,12 @@ In summary, module styles provide local scoping by automatically generating uniq
 13) Destructuring
     =============
 
- - Destructuring is a powerful technique in JavaScript, including when working with React             components to handle props and state more effectively. It allows you to extract values from        objects and arrays into distinct variables, making your code cleaner and more readable.
+ - Destructuring is a powerful technique in JavaScript, including when working with React components to handle props and state more effectively. It allows you to extract values from objects and arrays into distinct variables, making your code cleaner and more readable.
 
    Destructuring Props:
    -------------------
 
-   When destructuring props in a functional component, you can do so within the function's            argument list. Here's how you can destructure props:
+   When destructuring props in a functional component, you can do so within the function's argument list. Here's how you can destructure props:
 
    Alternatively, you can destructure props within the function body:
 
@@ -1096,7 +1093,7 @@ In summary, module styles provide local scoping by automatically generating uniq
 14) List rendering
     ==============
 
- - In React, list rendering is the process of rendering a collection of items (such as an array)      as a list of React elements. This is a common scenario in web applications where you want to       display a dynamic list of items, such as posts, comments, products, etc. React provides various    ways to achieve list rendering. Here are some approaches:
+ - In React, list rendering is the process of rendering a collection of items (such as an array) as a list of React elements. This is a common scenario in web applications where you want to display a dynamic list of items, such as posts, comments, products, etc. React provides various ways to achieve list rendering. Here are some approaches:
 
    Using map(): The map() function is a commonly used method to iterate over an array and create      React elements for each item.
 
@@ -1113,26 +1110,26 @@ In summary, module styles provide local scoping by automatically generating uniq
   );
  }
 
- - Remember that the key prop is important to provide when rendering lists, as it helps React keep    track of each element's identity and optimize updates. The key should be a unique identifier       for each item in the list. Avoid using the array index as the key when possible, as it can lead    to performance issues in certain cases.
+ - Remember that the key prop is important to provide when rendering lists, as it helps React keep track of each element's identity and optimize updates. The key should be a unique identifier for each item in the list. Avoid using the array index as the key when possible, as it can lead to performance issues in certain cases.
 
 
 15) Events handling
     ===============
 
- - In React, event handling is essential for creating interactive user interfaces. You can attach     event handlers to React elements to respond to various user actions, such as clicks, input         changes, and more. Here's how you can handle events in React:
+ - In React, event handling is essential for creating interactive user interfaces. You can attach event handlers to React elements to respond to various user actions, such as clicks, input changes, and more. Here's how you can handle events in React:
 
 
    Inline Event Handlers:
 
- - You can define event handlers directly in the JSX element's attributes. Use the onEventName        attribute where EventName is the specific event you want to handle (e.g., onClick, onChange)
+ - You can define event handlers directly in the JSX element's attributes. Use the onEventName attribute where EventName is the specific event you want to handle (e.g., onClick, onChange)
 
    Binding Event Handlers:
 
- - When using class components, you need to bind the event handlers to the class instance to          access this correctly. In functional components, this is not required.
+ - When using class components, you need to bind the event handlers to the class instance to access this correctly. In functional components, this is not required.
 
    Passing Arguments to Event Handlers:
 
- - If you need to pass additional data to an event handler, you can do so using arrow functions or    the bind method.
+ - If you need to pass additional data to an event handler, you can do so using arrow functions or the bind method.
 
    Preventing Default Behavior:
 
@@ -1174,42 +1171,34 @@ In summary, module styles provide local scoping by automatically generating uniq
 
       <BorwserRouter/>
    
-      All the routes and components will be wrapped inside the <BrowserRouter/> component, as 
-
-      it will store the URLs internally, using which you actually route through all the components
+      All the routes and components will be wrapped inside the <BrowserRouter/> component, as it will store the URLs internally, using which you actually route through all the components
 
       or basically the entire application. It keeps track of changes and navigation history.
 
       Routes and Route =>
 
-      When we click on the link which will be in the URL and The Routes component will look for
-
-      the related child route configured with the same URL value.
+      When we click on the link which will be in the URL and The Routes component will look for the related child route configured with the same URL value.
 
       To impliment the SPA, react router provided us Link component.
 
 
    => Link 
 
-      Link component is used to create SPA in react. When you click on any link it will not              refresh or reload entire page. It will load only particular section of data from server.
+      Link component is used to create SPA in react. When you click on any link it will not refresh or reload entire page. It will load only particular section of data from server.
 
    => Dynamic routing (useParams)
 
-      When we have lot of products from database then creating routes for each product is 
-      not easy. Then we create only one route for all products by using dynamic routing concept.
+      When we have lot of products from database then creating routes for each product is not easy. Then we create only one route for all products by using dynamic routing concept.
 
    => Not matching route
 
-      If user is typed the URL for route which is not created then we have to handle that case
-
-      by creating one component which is rendered for not matched route.
+      If user is typed the URL for route which is not created then we have to handle that case by creating one component which is rendered for not matched route.
 
       give * for path while configure route. 
  
    => Nested routes (Outlet)
 
-      When we click on link on memu then child component will be rendered but the menu will be           hidden, to persist the menu we have to create nested route for child component.
-      To render child component we have to use Outlet component.
+      When we click on link on memu then child component will be rendered but the menu will be hidden, to persist the menu we have to create nested route for child component. To render child component we have to use Outlet component.
 
    => useLocation hook (sharing of data)
 
@@ -1224,4 +1213,84 @@ Lazy loading in React.js is a technique used to improve the performance of web a
 Lazy loading is typically achieved using two primary mechanisms in React:
 
 Dynamic Imports: You can use JavaScript's dynamic import() function, which allows you to load modules or components asynchronously. By dynamically importing a module, you can specify when and where to load the code.
+
+
+
+9) Performance?
+   ===========
+  
+
+What is Conditional rendering?
+=============================
+
+
+   - Conditional rendering in React.js is the process of displaying different components or content based on certain conditions or state values.
+ 
+   - It allows developers to control the output of the user interface based on specific conditions, such as user interactions, data availability, or component state changes.
+
+     1) If statements: You can use regular JavaScript if else statements to conditionally render components or elements.
+
+     2) Ternary operator: The ternary operator is a concise way to conditionally render content based on condition. It has condition ? expression1:expression2
+
+     3) Logical && operator: In cases where you want to conditionally render content only when a certain condition is true, you can use the && operator.
+
+   - Conditional rendering is a powerful concept in React because it enables developers to 
+     build dynamic and interactive user interfaces by showing different content based on the application's state and user interactions
+
+
+What is Fragment?
+================
+
+
+   - In React.js, a Fragment is a special type of component that allows you to group multiple child elements without adding an extra DOM element.
+ 
+   - It was introduced as a feature in React 16.2 to address the common use case where developers needed to return multiple elements from a component's render method without wrapping them in a parent element.
+
+   - Prior to the introduction of Fragments, if you wanted to return multiple elements from a component, you had to wrap them inside a single parent element.
+
+   - With Fragments, you can achieve the same result without introducing an extra <div> element.
+ 
+   - By using Fragments, you keep your JSX cleaner and reduce the number of DOM elements, which can lead to better performance in some cases.
+
+   - It's important to note that using Fragment doesn't add any additional functionality to your components; they are purely a syntax feature to make your JSX more concise and organized.
+
+
+What is HOC?
+===========
+
+
+   - In simple terms, an HOC is a function that takes a component as input and returns a new component with additional props or behaviors.
+
+   - The purpose of HOCs is to encapsulate and share common functionality across different components without the need for code duplication. It allows you to reuse component logic in your application.
+
+   - They are commonly used for tasks like logging, authentication, authorization, and sharing state or behavior among multiple components.
+
+   - It's worth noting that the React team has recommended using hooks (e.g., useState, useReducer, etc.) for managing local state within components, which makes HOCs less commonly used for state management in modern React applications. Hooks provide a more concise and straightforward approach for managing local state without the need for higher-order components. However, HOCs can still be valuable for other scenarios like code reuse, logic separation, and wrapping third-party components.
+
+  - HOCs can offer a more localized approach to state management, allowing you to encapsulate state logic within the component tree without relying on a global state container. 
+
+  - Global state management in React can be achieved using various tools and libraries like Redux, MobX, or React Context API. However, using HOCs is another approach that allows you to share state and functionality across multiple components in a more localized manner.
+
+  - By using this approach, you can manage the state in a more localized and composable way, making it easier to understand and maintain your code. Keep in mind that if your application's  state management requirements grow complex, using dedicated state management libraries like Redux or MobX might still be a more suitable solution.
+
+
+
+What is render props pattern?
+============================
+
+   - The term 'render prop' refers to a technique for sharing common logic between react components by using prop whose value is a function.
+
+
+What is custom hook?
+===================
+
+
+   - In React.js, a "Custom Hook" is a JavaScript function that allows you to encapsulate reusable logic and stateful behavior to be shared across different components.
+
+   - Custom Hooks are powerful because they allow you to abstract complex logic and state management into separate units of functionality, making your components cleaner, more focused, and easier to maintain.
+ 
+   - They also promote code sharing and prevent duplication of logic across different components.
+
+   - Custom Hooks follow a specific naming convention by starting the function name with the prefix "use." For example, a custom hook for handling state might be named useCustomState, and one for fetching data might be named useCustomFetch.
+
 

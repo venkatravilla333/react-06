@@ -3,8 +3,14 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
+import Countone from "./functionalComponents/Remove-Duplicate-Logic/Countone";
+import Counttwo from "./functionalComponents/Remove-Duplicate-Logic/Counttwo";
+
 // import Rendering from "./functionalComponents/Conditional-rendering/Rendering";
-import Parent from "./functionalComponents/Fragment/Parent";
+// import Countone from "./classComponents/Remove-Duplicate-Logic/Countone";
+// import Counttwo from "./classComponents/Remove-Duplicate-Logic/Counttwo";
+// import Render from "./classComponents/Remove-Duplicate-Logic/Render-Props/Render";
+// import Parent from "./functionalComponents/Fragment/Parent";
 // import Parent from "./functionalComponents/Portals/Parent";
 
 // import Parent from "./classComponents/Destructuring/Parent";
@@ -85,7 +91,23 @@ function App() {
       {/* <Refervalue/> */}
       {/* <Parent/> */}
       {/* <Rendering/> */}
-      <Parent/>
+      {/* <Parent/> */}
+      {/* <Countone />
+      <Counttwo/> */}
+      {/* <Render render={(count, updateCount) => {
+        return (
+          <div>
+            <Countone count={count} updateCount={updateCount} />
+           
+          </div>
+        ); 
+      } } />
+      <Render render={(count, updateCount) => {
+        return <Counttwo count={count } updateCount={updateCount} />
+      } } /> */}
+
+      <Countone />
+      <Counttwo/>
       
 
       
