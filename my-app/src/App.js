@@ -3,8 +3,9 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
-import Countone from "./functionalComponents/Remove-Duplicate-Logic/Countone";
-import Counttwo from "./functionalComponents/Remove-Duplicate-Logic/Counttwo";
+import Parent from "./functionalComponents/Performance/Avoid-Unneccessory-Re-rendering/Parent";
+// import Countone from "./functionalComponents/Remove-Duplicate-Logic/Countone";
+// import Counttwo from "./functionalComponents/Remove-Duplicate-Logic/Counttwo";
 
 // import Rendering from "./functionalComponents/Conditional-rendering/Rendering";
 // import Countone from "./classComponents/Remove-Duplicate-Logic/Countone";
@@ -106,8 +107,10 @@ function App() {
         return <Counttwo count={count } updateCount={updateCount} />
       } } /> */}
 
-      <Countone />
-      <Counttwo/>
+      {/* <Countone />
+      <Counttwo/> */}
+
+      <Parent/>
       
 
       
