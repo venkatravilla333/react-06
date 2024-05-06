@@ -3,7 +3,9 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
-import Parent from "./functionalComponents/Performance/Avoid-Unneccessory-Re-rendering/Parent";
+import Parent from "./functionalComponents/Performance/Avoid-Unneccessory-Re-rendering/useMemo-useCallback-useEffect/Parent";
+
+// import Parent from "./functionalComponents/Performance/Avoid-Unneccessory-Re-rendering/Parent";
 // import Countone from "./functionalComponents/Remove-Duplicate-Logic/Countone";
 // import Counttwo from "./functionalComponents/Remove-Duplicate-Logic/Counttwo";
 
@@ -110,6 +112,7 @@ function App() {
       {/* <Countone />
       <Counttwo/> */}
 
+      {/* <Parent/> */}
       <Parent/>
       
 
