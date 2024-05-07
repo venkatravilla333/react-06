@@ -3,7 +3,10 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
-import Parent from "./functionalComponents/Performance/Avoid-Unneccessory-Re-rendering/useMemo-useCallback-useEffect/Parent";
+import ExtraParent from "./classComponents/Performance/Avoid-Unneccessory-Re-rendering/ExtraParent";
+import Parent from "./classComponents/Performance/Avoid-Unneccessory-Re-rendering/Parent";
+
+// import Parent from "./functionalComponents/Performance/Avoid-Unneccessory-Re-rendering/useMemo-useCallback-useEffect/Parent";
 
 // import Parent from "./functionalComponents/Performance/Avoid-Unneccessory-Re-rendering/Parent";
 // import Countone from "./functionalComponents/Remove-Duplicate-Logic/Countone";
@@ -113,9 +116,10 @@ function App() {
       <Counttwo/> */}
 
       {/* <Parent/> */}
-      <Parent/>
+      {/* <Parent/> */}
       
-
+      {/* <Parent/> */}
+      <ExtraParent/>
       
     </>
   ); 
