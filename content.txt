@@ -1294,3 +1294,327 @@ What is custom hook?
    - Custom Hooks follow a specific naming convention by starting the function name with the prefix "use." For example, a custom hook for handling state might be named useCustomState, and one for fetching data might be named useCustomFetch.
 
 
+
+What is Virtual DOM?
+===================
+
+ - In React.js, the Virtual DOM is a lightweight copy of real DOM. It is a key concept in React's rendering process and plays a crucial role in optimizing the performance of React applications.
+
+ - When you create a React component, you define its structure using JSX, React takes these JSX components and converts them into Virtual DOM representation.
+
+   Here's how the Virtual DOM works:
+
+  1) Component rendering (Create the Virtual DOM Tree:): When you render a React component, React creates a Virtual DOM tree that mirrors the structure of your JSX components.
+
+  2) State/props changes: When there's a change in the application's state or props, a new Virtual DOM tree is generated for the updated component and its children. This represents the desired state of the UI.
+
+  3) Virtual DOMs comparison (Diffing:): React then compares the new Virtual DOM tree with the previous one to determine the minimal number of changes needed to update the actual DOM.
+
+  4) Recursive Comparison: During the diffing process, React compares nodes in both Virtual DOM trees. It checks whether a node is different between the two trees based on its type (e.g, HTML element, functional component, class component) and its key (if provided). If the type or key is different, React considers the nodes to be different and proceeds to update that part of the tree.
+
+  4) Reconciliation: After calculating the differences, React applies the necessary updates only to the real DOM nodes that require changes. This process of updating only the specific parts of the DOM is known as "reconciliation" and is much more efficient than directly updating the entire DOM.
+
+  5) Actual DOM update: Finally, React applies the "diff" to the real DOM in a single batch update, avoiding excessive direct manipulation of the DOM, which can be slow and resource-intensive.
+
+  - In summary, the Virtual DOM is an essential part of React's rendering process that acts as a middle layer between your React components and the actual DOM, optimizing performance by efficiently updating only the necessary parts of the DOM.
+
+
+
+
+Let’s start with the Virtual DOM.
+
+Virtual DOM
+-----------
+
+It is a virtual representation of the UI (copy of DOM) kept in memory and synced with the real DOM by a library like ReactDOM.
+
+Why do we need a virtual DOM when there is an actual DOM?
+---------------------------------------------------------
+
+Well, DOM operations are expensive, and updating the whole DOM on every prop/state change is very inefficient. Here’s how the virtual DOM deals with this inefficiency:
+
+A component props/state changes
+-------------------------------
+
+-React triggers a rerender.
+
+-React compares the virtual DOM (virtual DOM before the update) with the updated virtual DOM  (virtual DOM after update).
+
+-React determines the best possible way to reflect the changes in the UI with minimal operations  on the real DOM.
+
+-So its virtual DOM helps React update the UI to match the most recent tree.
+
+Reconciliation
+--------------
+
+-The process of keeping virtual DOM in sync with the real DOM is called reconciliation.
+
+-So the whole process we discussed above is known as reconciliation.
+
+Diffing
+-------
+
+The comparison between the virtual DOMs (to figure out what needs to be updated in the UI) is referred to as diffing, and the algorithm that does it is called diffing algorithm.
+
+How does the diffing algorithm work?
+------------------------------------
+
+The diffing algorithm compares the two trees by comparing their root nodes first.
+
+1.Different root nodes
+  --------------------
+
+<div>
+  <p>Hello</p>
+</div>
+
+<section>
+  <p>Hello</p>
+</section>
+
+Comparing the two trees above will lead to a full rebuild because the root elements <div> and <section> are different. Any components below root will also be rebuilt.
+
+2. Same root nodes
+   ---------------
+
+When DOM elements of the same type are compared, React compares the attributes of both, keeps the same underlying DOM node, and updates the changed attributes.
+
+<div className="one" />
+<div className="two" />
+
+React modifies the className on the underlying DOM node.
+
+3. Diffing lists
+   -------------
+
+When diffing children of a DOM node, React compares children of both lists and generates a mutation whenever there’s a difference.
+
+Consider the list of todos below:
+
+<ul>
+  <li>sachin</li>
+  <li>kohli</li>
+</ul>
+
+Now, let’s add a new item at the beginning of the list:
+------------------------------------------------------
+
+<ul>
+  <li>gill</li>
+  <li>sachin</li>
+  <li>kohli</li>
+</ul>
+
+When a new item is added to the list, the following happens:
+------------------------------------------------------------
+
+React compares <li>gill</li> in the virtual DOM with <li>sachin</li> in the updated virtual DOM
+
+The comparison tells React that the list items are changed.
+
+React will repaint all the list items in the DOM
+
+This is very inefficient because React has to repaint all the list items. To solve this, we can give a key prop a value that uniquely identifies a list item among its siblings.
+
+Keys
+----
+
+The key prop lets React identify each element in a list. It is used to keep track of items that are changed, added, or removed. Key should be unique among its siblings not globally.
+
+Now let’s add a key prop to our above example:
+
+<ul>
+  <li key="sa">sachin</li>
+  <li key="ko">kohli</li>
+</ul>
+<ul>
+  <li key="gi">gill</li>
+  <li key="sa">sachin</li>
+  <li key="ko">kohli</li>
+</ul>
+
+Now React knows that the element with key 'gi' is the new one, and React will just add the new element to the DOM instead of manipulating all items again in the DOM.
+
+What To Pick As the Key?
+
+Usually, the data set you are iterating already has an ID or something that can be used as an ID. So you can just use that.
+
+<li key={item.id}>{item.name}</li>
+
+When you don’t have a stable ID in your data set, you can use libraries like nanoid that can generate unique ids for you.
+
+import { nanoid } from 'nanoid';
+{items.map(item => (
+  <div key={nanoid()}>{item.name}</div>
+))}
+
+However, an index is not always the best choice and can lead to poor performance and unexpected rendering problems.
+
+Now, let’s add a new item at the ending of the list:
+----------------------------------------------------
+
+React will insert the new child at the end of the children.
+
+It renders/inserts only last child in list in DOM instead of all childs in DOM. It does not re-render remaing childs in list. 
+
+
+What is Pure component?
+======================
+
+
+   - It is a specific type of React component that automatically implements shouldComponentUpdate () with shallow comparison of props and state to determine whether the component should re-render or not.
+
+   - By default, when a component receives new props or updates its state, React will trigger a re-render of that component and its child components. 
+
+   - However, in some cases, the new props or state might be the same as the previous ones, and the component doesn't need to re-render because it would produce the same output.
+
+   - A Pure Component optimizes this process by doing a shallow comparison of the current and previous props and state.
+ 
+   - If React determines that the new props and state are equal to the previous ones, it will skip the re-rendering process for that component and its children, saving unnecessary rendering cycles.
+
+   - To create a Pure Component in React, you can extend the React.PureComponent class instead of React.Component.
+
+
+
+      
+
+What is React.memo() in react?
+=============================
+
+
+   - React.memo is a higher-order component (HOC) provided by React that is used for optimizing functional components by preventing unnecessary re-renders.
+ 
+   - It is similar to React.PureComponent for class components, but it is specifically designed to work with functional components.
+
+   - By default, when a functional component is re-rendered, it re-executes its entire function body, potentially recalculating values and causing re-renders for its child components.
+     In some cases, this can lead to performance issues, especially when the component receives the same props and its rendering output would be identical.
+
+   - React.memo optimizes this process by memoizing the component's result and re-rendering it only when its props change. It performs a shallow comparison of the current and previous props, and if they are equal, the component is not re-rendered, and the previously memoized     result is used.
+
+   - When you wrap a functional component with React.memo, it will only re-render if its props have changed since the last render. If the props are the same, React will skip the rendering process for that component, preventing unnecessary re-renders and improving performance.
+
+   
+
+What is useMemo ()  hook?
+========================
+
+
+   - In React.js, useMemo is a hook that is used for memoizing expensive computations, preventing unnecessary recalculation of values on each render.
+ 
+   - It allows you to cache the result of a function call and return the cached result when the inputs (dependencies) to that function have not changed since the last render.
+
+   - The useMemo hook takes two arguments: the first argument is the function that computes the value you want to memoize, and the second argument is an array of dependencies. 
+ 
+   - The hook will recompute the value only when one of the dependencies in the array has changed. If the dependencies remain the same between renders, useMemo will return the cached value, avoiding redundant calculations.
+
+
+What is useCallback hook?
+=========================
+
+
+   - In React.js, useCallback is a hook that is used to memoize functions in order to avoid unnecessary re-creations of those functions on every render.
+ 
+   - It is particularly useful when dealing with child components that receive functions as props, as re-creating functions can cause those child components to re-render unnecessarily, leading to performance issues.
+
+     The useCallback hook takes two arguments:
+
+     1) The function that you want to memoize.
+
+     2) An array of dependencies. The memoized callback will only be re-created when any of the dependencies in the array change.
+
+   - Using useCallback is beneficial when dealing with components that receive functions as props, as it can prevent those components from re-rendering needlessly and improve overall performance.
+
+
+
+While both useMemo and useCallback remember something between renders until the dependancies change, the difference is just what they remember.
+
+=> useMemo will remember the returned value from your function.
+
+=> useCallback will remember your actual function.
+
+
+
+=> useMemo is to memoize a calculation result between a function's calls and between renders.
+
+=> useCallback is to memoize a callback itself (referential equality) between renders/
+
+=> useRef is to keep data between renders (updating does not fire re-rendering)
+
+=> useState is to keep data between renders (updating will fire re-rendering)
+
+
+What is the difference between useCallback and useMemo?
+-------------------------------------------------------
+=> useCallback returns a memoized callback function, 
+=> while useMemo returns a memoized value. 
+=> Both hooks can be used to optimize the performance of your React components by avoiding unnecessary re-creations of functions or values
+
+
+
+React.memo vs useCallback vs useMemo:
+====================================
+
+
+1) Without passing props:
+   =====================
+
+   1) Initial Rendering:
+      ------------------
+
+      => By default, if parent rendered then all its child components will be rendered. 
+
+   2) Re-rendering:
+     --------------
+
+      => By default, every time parent is re-rendered then all its child components also will be re-rendered as well regardless of props changed.
+
+
+2) with passing same props:
+   =======================
+
+     1) Primitives types as prop:
+      ---------------------------
+
+     => This can be handeled by react.Memo()
+
+
+     2) Reference types as prop (array, object):
+      -----------------------------------------
+ 
+     => This can not be handeled by react.Memo()
+
+        1) this can be handeled by useMemo() hook (if having dependence)
+        2) move array/ object outside(above) of component then no need of useMemo() hook.
+        
+
+     3) funtion as prop:
+       -----------------
+ 
+     => This can not be handeled by react.Memo()
+
+         1) this can be handeled by useCallback() hook (if having dependence)
+         2) move function outside(above) of component then no need of useCallback() hook.
+
+
+3) previous and current props are different:
+   ========================================
+
+     1)Primitives types as prop:
+      --------------------------
+
+      => component will be re-rendered
+
+     2)Reference types as prop (array, object):
+      ----------------------------------------
+ 
+      => component will be re-rendered
+
+     3)funtion as prop:
+      ---------------- 
+
+      => component will be re-rendered
+
+     Note: useCallback and useMemo both expect a function and an array of dependencies.
+
+
+

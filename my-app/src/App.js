@@ -3,8 +3,12 @@
 // import Parent from "./classComponents/Parent";
 // import Jsx from "./functionalComponents/jsx/Jsx";
 
-import ExtraParent from "./classComponents/Performance/Avoid-Unneccessory-Re-rendering/ExtraParent";
-import Parent from "./classComponents/Performance/Avoid-Unneccessory-Re-rendering/Parent";
+import Parent from "./functionalComponents/Render/Parent";
+
+// import Parent from "./functionalComponents/state/localState/Use-Reducer/Parent";
+
+// import ExtraParent from "./classComponents/Performance/Avoid-Unneccessory-Re-rendering/ExtraParent";
+// import Parent from "./classComponents/Performance/Avoid-Unneccessory-Re-rendering/Parent";
 
 // import Parent from "./functionalComponents/Performance/Avoid-Unneccessory-Re-rendering/useMemo-useCallback-useEffect/Parent";
 
@@ -119,8 +123,10 @@ function App() {
       {/* <Parent/> */}
       
       {/* <Parent/> */}
-      <ExtraParent/>
+      {/* <ExtraParent/> */}
       
+      {/* <Parent/> */}
+      <Parent/>
     </>
   ); 
 }
